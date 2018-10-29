@@ -16,12 +16,15 @@ int main (int argc, char* argv[])
 	} else if (rc == 0)
 	{
         //child
-        printf("im child \n");
+        //int a = wait(&status);
+        printf("im child pid:%d\n",(int) getpid());
+        //printf("a = %d \n",a);
     } else
     {
         //parent
-        wait(&status);
-        printf("im parent \n");
+        int a = wait(&status);
+        printf("im parent pid:%d\n",(int) getpid());
+        printf("a = %d \n",a);
     }  
 
     return 0;

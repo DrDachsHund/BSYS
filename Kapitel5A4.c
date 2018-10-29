@@ -4,6 +4,11 @@
 
 int main (int argc, char* argv[])
 {
+    char* args[2];
+    args[0] = "/bin/ls";
+    args[1] = NULL;
+    char* file = "/bin/ls";
+
     int rc = fork();
 	if (rc < 0)
 	{
@@ -14,6 +19,12 @@ int main (int argc, char* argv[])
 	} else if (rc == 0)
 	{
         //child
+        //execv(args[0],args);
+        //execl("/bin/ls","ls");
+        // noch falsch execle("/bin/ls","ls",0);
+        //execlp(File,Argument0,Argument);
+        //execvp(file,args);
+        //execvpe(const char* file, char *const arg][v, char*const env[]p);
         printf("im child \n");
     } else
     {

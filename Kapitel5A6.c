@@ -6,6 +6,8 @@
 int main (int argc, char* argv[])
 {
     int status;
+    pid_t pid;
+
     int rc = fork();
 	if (rc < 0)
 	{
@@ -16,12 +18,11 @@ int main (int argc, char* argv[])
 	} else if (rc == 0)
 	{
         //child
-        printf("im child \n");
+        printf("im child pid:%d\n",(int) getpid());
     } else
     {
         //parent
-        wait(&status);
-        printf("im parent \n");
+        printf("im parent pid:%d\n",(int) getpid());
     }  
 
     return 0;
