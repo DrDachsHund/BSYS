@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+
 int main (int argc, char* argv[])
 {
-	int x = 0;
-	printf("variable x = %d hello world (pid:%d)\n",x, (int) getpid());
+	FILE *fp;
+    fp = fopen("txt.txt","w");
+	printf("hello world (pid:%d)\n", (int) getpid());
 	
 	int rc = fork();
 	if (rc < 0)
@@ -17,17 +19,17 @@ int main (int argc, char* argv[])
 	} else if (rc == 0)
 	{
 		//child (new process)
-		x = x + 100;
-		printf("variable x = %d hallo, i am child (pid:%d)\n",x, (int) getpid());
+		fprintf(fp, "hello i am a child \n");
+		printf("hallo, i am child (pid:%d)\n", (int) getpid());
 		
 	} else 
 	{
 		//parent goes down this path (original process)
-		x = 100;
-		printf("variable x = %d hallo, i am parent of %d (pid:%d)\n",x, rc, (int) getpid());
+		fprintf(fp, "hello i am a parent \n");
+		printf("hallo, i am parent of %d (pid:%d)\n",rc, (int) getpid());
 	}
 
-	printf("Variable x = %d after fork()\n",x);
+    fclose(fp);
 
 	return 0;
 }
