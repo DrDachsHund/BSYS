@@ -19,11 +19,11 @@ int main (int argc, char* argv[])
 	} else if (rc == 0)
 	{
         //child
-        //execv(args[0],args);
+        //geht -> execv(args[0],args);
         //execl("/bin/ls","ls");
         // noch falsch execle("/bin/ls","ls",0);
         //execlp(File,Argument0,Argument);
-        //execvp(file,args);
+        //geht -> execvp(file,args);
         //execvpe(const char* file, char *const arg][v, char*const env[]p);
         printf("im child \n");
     } else

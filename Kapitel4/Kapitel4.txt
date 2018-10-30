@@ -130,4 +130,10 @@ Stats: Total Time 18
 Stats: CPU Busy 18 (100.00%)
 Stats: IO Busy  12 (66.67%)
 
-8. 
+8. -S SWITCH_ON_IO -> wechselt zu anderem process und macht erst den bis
+			er entweder wartet oder fertig ist
+   -S SWITCH_ON_END -> Wartet ohne das die cpu arbeitet
+   -I IO_RUN_IMMEDIATE -> switcht bei waite state aber geht wieder zurück
+			 nach warten
+   -I IO_RUN_LATER -> switcht und macht erst das andere und macht dann das
+			erste fertig
