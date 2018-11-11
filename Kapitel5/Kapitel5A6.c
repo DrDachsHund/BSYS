@@ -22,6 +22,7 @@ int main (int argc, char* argv[])
     } else
     {
         //parent
+        waitpid(rc,&status,0);
         printf("im parent pid:%d\n",(int) getpid());
     }  
 
